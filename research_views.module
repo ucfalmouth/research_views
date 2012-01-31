@@ -48,6 +48,7 @@ function research_views_menu() {
   $items['my-research'] = array(
     'page callback' => 'research_views_view_myresearch',
     //'access callback' => 'research_views_access_myresearch',
+	'access callback' => TRUE,
     'access arguments' => array('access my-research'),
     'type' => MENU_CALLBACK,
     'file' => 'research_views.inc',
