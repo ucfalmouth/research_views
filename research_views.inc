@@ -7,8 +7,10 @@ function research_views_view_research ($research_user = NULL) {
   global $user;
   if (is_object($research_user)) {
     if ($research_user->uid == $user->uid) {
+      // if user is looking at their own research
       $page = views_embed_view('my_research', 'default', $user->uid);
     } else {
+      // if user looking at another researcher's research listing
       $page = views_embed_view('user_research', 'default', $research_user->uid);
     }
   }
