@@ -46,20 +46,36 @@ function research_views_permission() {
 function research_views_menu() {
   // Menu link callbacks.
   $items['my-research'] = array(
+	'type' => MENU_NORMAL_ITEM,
+	'menu_name' => 'main-menu',
+	'title' => 'My research',
     'page callback' => 'research_views_view_myresearch',
-    //'access callback' => 'research_views_access_myresearch',
+    //'access callback' => '_research_views_access_myresearch',
 	'access callback' => TRUE,
     'access arguments' => array('access my-research'),
-    'type' => MENU_CALLBACK,
     'file' => 'research_views.inc',
+  );
+  $items['user/%user/research'] = array(
+	'type' => MENU_LOCAL_TASK,
+	'title' => 'Research',
+    'page callback' => 'research_views_view_research',
+	'page arguments' => array(1),
+	'access callback' => TRUE,
+	'weight' => '-10',
+	'file' => 'research_views.inc',
   );
   return $items;
 }
 
+
+function _testlocal (){
+	return '<p>hello</p>';
+}
 /*
  * Currently dealt with by default access callback (user_access)
  * should more complex access check be required:
-function research_views_access_myresearch () {
+ * cannot be in seperate include file
+function _research_views_access_myresearch () {
   global $user;
   // is the logged in user a researcher? (or root user)
   if (in_array('researcher', $user->roles) || $user->uid == 1) { 

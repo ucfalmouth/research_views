@@ -1,6 +1,24 @@
 <?php
 
 /*
+ * page callback to provide view of user's research or a 'my-research' editing page
+ */
+function research_views_view_research ($research_user = NULL) {
+  global $user;
+  if (is_object($research_user)) {
+    if ($research_user->uid == $user->uid) {
+      $page = views_embed_view('my_research', 'default', $user->uid);
+    } else {
+      $page = views_embed_view('user_research', 'default', $research_user->uid);
+    }
+  }
+  else {
+    $page ='<p>The specified researcher could not be found</p>';
+  }
+  return $page;
+}
+
+/*
  * page callback to provide 'my-research' editing page
  */
 function research_views_view_myresearch () {
