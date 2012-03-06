@@ -51,7 +51,7 @@ function research_views_menu() {
 	'title' => 'My research',
     'page callback' => 'research_views_view_myresearch',
     //'access callback' => '_research_views_access_myresearch',
-	'access callback' => TRUE,
+	'access callback' => 'user_access',
     'access arguments' => array('access my-research'),
     'file' => 'research_views.inc',
   );
