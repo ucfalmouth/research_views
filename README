@@ -5,5 +5,7 @@ for non researchers
 
 Dependent on 'repo_researcher' feature as uses view defined 'therein'
 
+The advantage of this module is that it shows a differentiated view for the user/research tab dependent on who is looking at it. This could probably be achieved with context instead, which might be preferable in the future, not yet sure how to show/hide/change primary tab on user page depending on context
+
 
 It could easily be extended to allow for more complex access control.
